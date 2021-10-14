@@ -7,6 +7,7 @@ function download_sia_vac(code)
     local airac_string = "07_OCT_2021"
     local endpoint = string.format("/dvd/eAIP_%s/Atlas-VAC/PDF_AIPparSSection/VAC/AD/AD-2.%s.pdf", airac_string, code);
     local url = BASE_URL_SIA .. endpoint;
+    print(string.format("Download VAC from %s", url))
     local body, ret_code = http.request(url);
     if not body then error(ret_code) end
     local fname = string.format("AD-2.%s.pdf", code);
