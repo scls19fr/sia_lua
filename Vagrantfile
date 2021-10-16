@@ -56,6 +56,8 @@ Vagrant.configure("2") do |config|
     # Lua application dependencies
     config.vm.provision "lua_app_deps", type: "shell", inline: <<-SHELL
         luarocks install luasocket
+        apt-get install -q -y libssl-dev
+        luarocks install luasec
     SHELL
 
     # Lua application
