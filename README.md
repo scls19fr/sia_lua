@@ -10,7 +10,7 @@ lua download_sia_vac.lua
 
 ## Development
 
-A [Lua](https://www.lua.org/) / [LuaRocks](https://luarocks.org/) environment can be set using Vagrant and VirtualBox virtual machines (VM)
+A [Lua](https://www.lua.org/) / [LuaRocks](https://luarocks.org/) environment can be set using [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) virtual machines (VM)
 
 ```bash
 vagrant up
