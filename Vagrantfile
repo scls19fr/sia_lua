@@ -58,12 +58,13 @@ Vagrant.configure("2") do |config|
         luarocks install luasocket
         apt-get install -q -y libssl-dev
         luarocks install luasec
+        luarocks install argparse
     SHELL
 
     # Lua application
     config.vm.provision "lua_app", type: "shell", inline: <<-SHELL
         cd /srv
-        lua download_sia_vac.lua
+        lua download_sia_vac.lua LFBI
     SHELL
 
 end
