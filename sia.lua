@@ -1,12 +1,17 @@
 local sia = {}
 
-local airac = require("airac")
 local https = require("ssl.https")
+local airac = require("airac")
 
 local BASE_URL_SIA = "https://www.sia.aviation-civile.gouv.fr"
+local MONTH_EN = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
+
+local function format_date(dt)
+    return string.format("%02d_%s_%d", dt.getday(), MONTH_EN[dt.getmonth()], dt.getyear())
+end
 
 local function download_sia_vac(icao_code)
-    -- local airac_string = format_french_date(dt_airac)
+    -- local airac_string = format_date(dt_airac)
     local airac_string = "07_OCT_2021"
     local endpoint = string.format("/dvd/eAIP_%s/Atlas-VAC/PDF_AIPparSSection/VAC/AD/AD-2.%s.pdf", airac_string, icao_code)
     local url = BASE_URL_SIA .. endpoint
@@ -21,5 +26,7 @@ end
 
 sia.BASE_URL_SIA = BASE_URL_SIA
 sia.download_sia_vac = download_sia_vac
+sia.MONTH_EN = MONTH_EN
+sia.format_date = format_date
 
 return sia

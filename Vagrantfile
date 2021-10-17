@@ -60,6 +60,7 @@ Vagrant.configure("2") do |config|
         apt-get install -q -y libssl-dev
         luarocks install luasec
         luarocks install argparse
+        luarocks install date
         luarocks install csv
     SHELL
 
