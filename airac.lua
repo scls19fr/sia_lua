@@ -9,7 +9,6 @@ local function airac_date(dt)
     if dt == nil then
         dt = date(true)
     end
-    print(dt)
     return AIRAC_INITIAL_DATE:adddays(math.floor((dt - AIRAC_INITIAL_DATE):spandays() // AIRAC_INTERVAL_DAYS) * AIRAC_INTERVAL_DAYS)
 end
 
