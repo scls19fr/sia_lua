@@ -13,4 +13,6 @@ local function airac_date(dt)
     return AIRAC_INITIAL_DATE:adddays(math.floor((dt - AIRAC_INITIAL_DATE):spandays() // AIRAC_INTERVAL_DAYS) * AIRAC_INTERVAL_DAYS)
 end
 
+airac.airac_date = airac_date
+
 return airac

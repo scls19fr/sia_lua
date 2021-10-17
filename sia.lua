@@ -7,12 +7,14 @@ local BASE_URL_SIA = "https://www.sia.aviation-civile.gouv.fr"
 local MONTH_EN = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 
 local function format_date(dt)
-    return string.format("%02d_%s_%d", dt.getday(), MONTH_EN[dt.getmonth()], dt.getyear())
+    local y, m, d = dt:getdate()
+    return string.format("%02d_%s_%d", d, MONTH_EN[m], y)
 end
 
 local function download_sia_vac(icao_code)
-    -- local airac_string = format_date(dt_airac)
-    local airac_string = "07_OCT_2021"
+    local dt_airac = airac.airac_date()
+    local airac_string = format_date(dt_airac)
+    -- local airac_string = "07_OCT_2021"
     local endpoint = string.format("/dvd/eAIP_%s/Atlas-VAC/PDF_AIPparSSection/VAC/AD/AD-2.%s.pdf", airac_string, icao_code)
     local url = BASE_URL_SIA .. endpoint
     print(string.format("Download %s VAC from %s", icao_code, url))
