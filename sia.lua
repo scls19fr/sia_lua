@@ -19,7 +19,7 @@ local function download_sia_vac(icao_code)
     local url = BASE_URL_SIA .. endpoint
     print(string.format("Download %s VAC from %s", icao_code, url))
     local body, code, headers, status = https.request(url)
-    if not body then error(code) end
+    if code ~= 200 then error({code=code}) end
     local fname = string.format("AD-2.%s.pdf", icao_code)
     local f = assert(io.open(fname, 'wb')) -- open in "binary" mode
     f:write(body)

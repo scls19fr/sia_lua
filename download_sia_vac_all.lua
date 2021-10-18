@@ -2,7 +2,6 @@ local csv = require("csv")
 local inspect = require("inspect")
 local argparse = require("argparse")
 local sia = require("sia")
-local mil_ad = require("mil_ad")
 
 local parser = argparse("download_sia_vac_all", "Download all VAC of french AD from SIA.")
 parser:option("-i --input", "Input file (France.cup).", "France.cup")
@@ -18,8 +17,9 @@ for fields in f:lines() do
     -- print(inspect(fields))
     if string.match(fields[2], pattern) then
         local icao_code = fields[2]
-        if mil_ad.MIL_AD[icao_code] == nil then
-            sia.download_sia_vac(icao_code)
+        local status, err = pcall(sia.download_sia_vac, icao_code)
+        if not status then
+            print("error with " .. icao_code)
         end
     end
 end
