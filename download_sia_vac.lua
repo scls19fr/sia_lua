@@ -1,7 +1,6 @@
 local argparse = require("argparse")
 local utils = require("utils")
 local sia = require("sia")
-local mil_ad = require("mil_ad")
 
 local parser = argparse("download_sia_vac", "Download VAC of french AD from SIA.")
 parser:argument("code", "ICAO AD code.")
