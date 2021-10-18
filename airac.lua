@@ -12,6 +12,11 @@ local function airac_date(dt)
     return AIRAC_INITIAL_DATE:adddays(math.floor((dt - AIRAC_INITIAL_DATE):spandays() // AIRAC_INTERVAL_DAYS) * AIRAC_INTERVAL_DAYS)
 end
 
+local function iso_date(d)
+    return string.format("%04d-%02d-%02d", d:getisoyear(), d:getmonth(), d:getday())
+end
+
 airac.airac_date = airac_date
+airac.iso_date = iso_date
 
 return airac

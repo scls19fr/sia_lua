@@ -19,7 +19,7 @@ for fields in f:lines() do
         local icao_code = fields[2]
         local status, err = pcall(sia.download_sia_vac, icao_code)
         if not status then
-            print("error with " .. icao_code)
+            print("error with " .. icao_code .. " " .. err)
         end
     end
 end

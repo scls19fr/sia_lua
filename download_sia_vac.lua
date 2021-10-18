@@ -9,6 +9,6 @@ local args = parser:parse()
 for _, icao_code in ipairs(utils.split(args.code, ",")) do
     local status, err = pcall(sia.download_sia_vac, icao_code)
     if not status then
-        print("error with " .. icao_code)
+        print("error with " .. icao_code .. " " .. err)
     end
 end
