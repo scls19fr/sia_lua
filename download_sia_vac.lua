@@ -22,7 +22,7 @@ local function download_sia_vac(icao_code)
 end
 
 local function split(s, delimiter)
-    result = {};
+    local result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
         table.insert(result, match);
     end
