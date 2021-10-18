@@ -2,10 +2,17 @@
 
 A [Lua](https://www.lua.org/) script to download VAC from [SIA (Service de l'information aéronautique)](https://www.sia.aviation-civile.gouv.fr/) website.
 
-## Usage
+# Usage
 
+## Download a VAC using a specific ICAO code
 ```bash
-lua download_sia_vac.lua
+lua download_sia_vac.lua LFBI
+```
+
+## Download all VAC
+```bash
+./download_france_cup.sh
+lua download_sia_vac_all.lua
 ```
 
 ## Development
